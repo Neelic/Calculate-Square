@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app-deployment
+spec:
+  replicas: 3  # Количество подов для стабильной нагрузки
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: web-app
+        image: your-image:latest
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 80
+        startupProbe: 
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 10 # Учет времени инициализации приложения до 10 секунд
+          periodSeconds: 5
+          failureThreshold: 5
+        readinessProbe:  # Принятие запросов после готовности
+          httpGet:
+            path: /ready
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 5
+        livenessProbe:  # Перезапуск при зависании
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 20
+          periodSeconds: 10
+      affinity:  # Распределения подов по разным нодам
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app: web-app
+              topologyKey: "kubernetes.io/hostname"  # Под распределяется по разным нодам
