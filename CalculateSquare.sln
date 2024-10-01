@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateSquare", "CalculateSquare\CalculateSquare.csproj", "{D11B8A77-4973-46B2-B3BE-69F04BBF8984}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculateSquare.Tests", "CalculateSquare.Tests\CalculateSquare.Tests.csproj", "{BEDE9445-EC2B-4DF3-AA17-B70DE7CE0CDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{D11B8A77-4973-46B2-B3BE-69F04BBF8984}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D11B8A77-4973-46B2-B3BE-69F04BBF8984}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D11B8A77-4973-46B2-B3BE-69F04BBF8984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDE9445-EC2B-4DF3-AA17-B70DE7CE0CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDE9445-EC2B-4DF3-AA17-B70DE7CE0CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDE9445-EC2B-4DF3-AA17-B70DE7CE0CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDE9445-EC2B-4DF3-AA17-B70DE7CE0CDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
